@@ -278,6 +278,67 @@ img {
   margin-bottom: 0;
 }
 
+.telegram-banner {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  max-width: min(92vw, 380px);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(255, 46, 50, 0.95) 0%, rgba(255, 95, 100, 0.95) 100%);
+  box-shadow: 0 16px 40px rgba(255, 46, 50, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  animation: telegram-banner-in 480ms ease-out both;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.telegram-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(255, 46, 50, 0.34);
+}
+
+.telegram-banner__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.telegram-banner__text {
+  font-weight: 600;
+  font-size: 0.97rem;
+  line-height: 1.2;
+}
+
+.telegram-banner__cta {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@keyframes telegram-banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .site-footer {
   max-width: 1120px;
   margin: 0 auto;
@@ -318,5 +379,14 @@ img {
   .site-footer__inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .telegram-banner {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    max-width: none;
+    border-radius: 18px;
+    padding: 12px 14px;
   }
 }
