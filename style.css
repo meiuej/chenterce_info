@@ -121,6 +121,29 @@ img {
   color: var(--muted);
 }
 
+.hero__actions {
+  margin: 24px 0 0;
+}
+
+.hero__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.hero__link:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 46, 50, 0.35);
+}
+
 .donate,
 .faq {
   padding: 32px 36px;
