@@ -12,9 +12,13 @@
 </head>
 <body>
   <header class="site-header">
-    <a class="site-logo" href="https://chenterce.info" target="_blank" rel="noopener noreferrer">
+    <a class="site-logo" href="index.html">
       <img src="ЦЕНТР-ЛОГО.png" alt="Центр Ц." width="180" height="48">
     </a>
+    <nav class="site-nav" aria-label="Навигация">
+      <a class="nav-link nav-link--active" href="index.html">Поддержать</a>
+      <a class="nav-link" href="about.html">О медиа</a>
+    </nav>
   </header>
 
   <main class="page">
@@ -127,5 +131,24 @@
       <p class="site-footer__copy">© Центр&nbsp;Ц. · Независимое медиа</p>
     </div>
   </footer>
+  <div class="cookie-banner" id="cookieBanner">
+    <p class="cookie-banner__text">
+      Мы используем файлы cookie для&nbsp;улучшения работы сайта.
+      Продолжая пользоваться сайтом, вы&nbsp;соглашаетесь с&nbsp;их&nbsp;использованием.
+    </p>
+    <button class="cookie-banner__btn" id="cookieAccept">Принять</button>
+  </div>
+
+  <script>
+    (function() {
+      if (localStorage.getItem('cookieConsent')) return;
+      var banner = document.getElementById('cookieBanner');
+      banner.classList.add('cookie-banner--visible');
+      document.getElementById('cookieAccept').addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', '1');
+        banner.classList.remove('cookie-banner--visible');
+      });
+    })();
+  </script>
 </body>
 </html>

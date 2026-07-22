@@ -39,7 +39,7 @@ img {
   margin: 0 auto;
   padding: 24px 24px 8px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -59,6 +59,33 @@ img {
   transform: translateY(-2px);
 }
 
+/* Navigation */
+.site-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.nav-link--active {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: rgba(255, 46, 50, 0.08);
+}
+
 .page {
   max-width: 1120px;
   margin: 0 auto;
@@ -67,7 +94,11 @@ img {
 
 .hero,
 .donate,
-.faq {
+.faq,
+.stats,
+.about-mission,
+.socials,
+.about-cta {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 0;
@@ -327,6 +358,238 @@ img {
   }
 }
 
+/* ─── Stats Section ─── */
+.stats {
+  padding: 32px 36px;
+  margin-top: 24px;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: stat-line-in 600ms ease-out 400ms forwards;
+}
+
+@keyframes stat-line-in {
+  to { transform: scaleX(1); }
+}
+
+.stat-card__value {
+  display: block;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.stat-card__suffix {
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.stat-card__label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── About Mission Section ─── */
+.about-mission {
+  padding: 32px 36px;
+  margin-top: 24px;
+}
+
+.about-mission__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.about-mission__block {
+  padding: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  transition: border-color 180ms ease;
+}
+
+.about-mission__block:hover {
+  border-color: var(--accent);
+}
+
+.about-mission__subtitle {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.about-mission__block p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ─── Socials Section ─── */
+.socials {
+  padding: 32px 36px;
+  margin-top: 24px;
+}
+
+.socials__intro {
+  margin: 0 0 20px;
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.socials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.social-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.social-card__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.social-card__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.social-card__handle {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.social-card__cta {
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ─── About CTA Section ─── */
+.about-cta {
+  padding: 40px 36px;
+  margin-top: 24px;
+  text-align: center;
+  background: var(--accent) !important;
+  border-color: #FFFFFF !important;
+}
+
+.about-cta__title {
+  margin: 0 0 10px;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+.about-cta__text {
+  margin: 0 0 24px;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  background: #FFFFFF;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid #FFFFFF;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.about-cta__btn:hover {
+  transform: translateY(-2px);
+  background: var(--bg);
+  color: #FFFFFF;
+}
+
+/* ─── Entry Animations ─── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats,
+.about-mission,
+.socials,
+.about-cta {
+  animation: fade-up 500ms ease-out both;
+}
+
+.stats { animation-delay: 100ms; }
+.about-mission { animation-delay: 200ms; }
+.socials { animation-delay: 300ms; }
+.about-cta { animation-delay: 400ms; }
+
+/* ─── Footer ─── */
 .site-footer {
   max-width: 1120px;
   margin: 0 auto;
@@ -352,15 +615,90 @@ img {
   margin: 0;
 }
 
+/* ─── Cookie Banner ─── */
+.cookie-banner {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.cookie-banner--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.cookie-banner__text {
+  margin: 0;
+  flex: 1;
+}
+
+.cookie-banner__btn {
+  flex-shrink: 0;
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.cookie-banner__btn:hover {
+  transform: translateY(-1px);
+  background: #e02528;
+}
+
 @media (max-width: 760px) {
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .hero,
   .donate,
-  .faq {
+  .faq,
+  .stats,
+  .about-mission,
+  .socials,
+  .about-cta {
     padding: 24px 20px;
     border-radius: 0;
   }
 
   .donate__buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .stats__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-mission__content {
+    grid-template-columns: 1fr;
+  }
+
+  .socials__grid {
     grid-template-columns: 1fr;
   }
 
