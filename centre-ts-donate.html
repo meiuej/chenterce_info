@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Поддержите Центр Ц.">
+  <meta name="description" content="Поддержите независимое медиа Центр Ц.">
   <title>Центр Ц. — поддержать</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +72,36 @@
     }
 
     .masthead { position: relative; z-index: 1; text-align: center; }
+
+    .page-nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      max-width: 850px;
+      margin: 0 auto clamp(38px, 5vw, 62px);
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-nav a {
+      padding: 5px 0;
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 180ms ease;
+    }
+
+    .page-nav a:hover,
+    .page-nav a:focus-visible {
+      color: var(--seal-dark);
+      outline: none;
+    }
 
     .edition {
       margin: 0 0 clamp(16px, 2vw, 24px);
@@ -484,6 +514,8 @@
     @media (max-width: 620px) {
       .sheet { padding: 28px 18px 38px; }
       .sheet::after { width: 130px; height: 130px; right: -62px; top: -62px; }
+      .page-nav { gap: 3px 13px; margin-bottom: 36px; padding-bottom: 11px; }
+      .page-nav a { font-size: 9px; letter-spacing: .09em; }
       .edition { margin-bottom: 15px; font-size: 10px; letter-spacing: .14em; }
       .mark { font-size: clamp(96px, 33vw, 142px); }
       h1 { margin-top: 20px; font-size: clamp(38px, 12vw, 50px); }
@@ -548,6 +580,14 @@
 </head>
 <body>
   <main class="sheet">
+    <nav class="page-nav" aria-label="Навигация по странице">
+      <a href="index.html">Главная</a>
+      <a href="#support">Поддержать</a>
+      <a href="#spending">На что пойдут</a>
+      <a href="#projects">Проекты</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+
     <header class="masthead">
       <p class="edition">Независимое медиа · Россия</p>
       <p class="mark" aria-hidden="true">Ц.</p>
@@ -559,7 +599,7 @@
 
     <div class="rule" aria-hidden="true"></div>
 
-    <section class="support" aria-labelledby="support-title">
+    <section class="support" id="support" aria-labelledby="support-title">
       <h2 class="support-heading" id="support-title">Поддержать редакцию</h2>
       <p class="support-intro">У нас нет инвесторов и государственных грантов — только читатели, которым важна независимая редакция.</p>
       <div class="options">
@@ -574,7 +614,7 @@
       </div>
     </section>
 
-    <section class="spending" aria-labelledby="spending-title">
+    <section class="spending" id="spending" aria-labelledby="spending-title">
       <h2 class="support-heading" id="spending-title">На что пойдёт поддержка</h2>
       <p class="spending-intro">Донаты помогают нам планировать работу и выпускать материалы, которые требуют времени, внимания и независимости.</p>
       <div class="spending-grid">
@@ -596,7 +636,7 @@
       </div>
     </section>
 
-    <section class="projects" aria-labelledby="projects-title">
+    <section class="projects" id="projects" aria-labelledby="projects-title">
       <h2 class="support-heading" id="projects-title">Что уже сделано</h2>
       <p class="projects-intro">Мы уже выпускаем материалы, которые помогают увидеть важное, разобраться в происходящем и действовать осознанно.</p>
       <div class="projects-grid">
@@ -619,7 +659,7 @@
       </div>
     </section>
 
-    <section class="faq" aria-labelledby="faq-title">
+    <section class="faq" id="faq" aria-labelledby="faq-title">
       <h2 class="support-heading" id="faq-title">Вопросы и ответы</h2>
       <p class="faq-intro">Мы ценим ваше доверие и открыто рассказываем, как устроена поддержка «Центра Ц.».</p>
       <div class="faq-list">
@@ -656,7 +696,7 @@
       </div>
     </section>
 
-    <footer>© Chenterce.Info – Real Russia (2026) </footer>
+    <footer>Центр Ц. · держим слово</footer>
   </main>
   <script>
     (function () {
