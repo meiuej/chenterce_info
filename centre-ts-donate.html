@@ -470,16 +470,20 @@
     footer {
       position: relative;
       z-index: 1;
-      margin-top: clamp(44px, 6vw, 68px);
-      padding-top: 22px;
+      max-width: 850px;
+      margin: clamp(44px, 6vw, 68px) auto 0;
+      padding-top: 26px;
       border-top: 1px solid var(--line);
       color: var(--ink-soft);
       text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -.01em;
+      line-height: 1.45;
     }
+
+    .legal-title { margin: 0 0 5px; color: var(--ink); font-size: 15px; font-weight: 700; letter-spacing: .04em; }
+    .legal-copy { margin: 0; }
 
     .redact-reveal {
       position: relative;
@@ -559,7 +563,8 @@
       .spending-intro, .projects-intro, .faq-intro { margin-bottom: 20px; font-size: 14px; }
       .faq-item summary { min-height: 66px; padding: 16px 1px; font-size: 20px; }
       .faq-answer { padding: 0 4px 18px 1px; font-size: 14px; line-height: 1.62; }
-      footer { margin-top: 42px; font-size: 10px; letter-spacing: .11em; }
+      footer { margin-top: 42px; padding-top: 20px; font-size: 12px; }
+      .legal-title { font-size: 13px; }
     }
 
     @media (max-width: 360px) {
@@ -696,7 +701,10 @@
       </div>
     </section>
 
-    <footer>Центр Ц. · держим слово</footer>
+    <footer>
+      <p class="legal-title">CHENTER CE. MEDIA © 2026</p>
+      <p class="legal-copy">Center C. is an independent media project.<br>All donations are voluntary and are used solely to support the project's activities.<br>The content published on this website is provided for informational purposes only.<br>All rights reserved.</p>
+    </footer>
   </main>
   <script>
     (function () {
