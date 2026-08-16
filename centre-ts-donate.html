@@ -7,580 +7,73 @@
   <title>Центр Ц. — поддержать</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --paper: #211d16;
-      --paper-light: #211d16;
-      --paper-deep: #16140f;
-      --ink: #e7ddc9;
-      --ink-soft: #bcae96;
-      --line: rgba(218, 198, 163, .3);
-      --seal: #bb7662;
-      --seal-dark: #d49b86;
-    }
-
+    :root { --background: #101010; --foreground: #f7f7f7; --button: #f4f4f4; --button-text: #111; --line: rgba(247,247,247,.42); }
     * { box-sizing: border-box; }
-
-    html { -webkit-font-smoothing: antialiased; }
-
-    body {
-      min-width: 320px;
-      min-height: 100vh;
-      margin: 0;
-      color: var(--ink);
-      font-family: Manrope, Arial, sans-serif;
-      background-color: var(--paper-deep);
-      background-image:
-        radial-gradient(circle at 16% 10%, rgba(138, 111, 65, .16), transparent 25rem),
-        radial-gradient(circle at 82% 86%, rgba(74, 52, 27, .24), transparent 29rem);
-    }
-
-    .sheet {
-      width: 100%;
-      min-height: 100vh;
-      margin: auto;
-      padding: clamp(26px, 5vw, 68px) clamp(22px, 6vw, 88px) clamp(34px, 5vw, 64px);
-      position: relative;
-      overflow: hidden;
-      background: var(--paper-light);
-      background-image:
-        radial-gradient(ellipse at top left, rgba(146, 118, 68, .11), transparent 42%);
-    }
-
-    .sheet::before,
-    .sheet::after {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-    }
-
-    .sheet::before {
-      inset: 0;
-      border: 0;
-      opacity: .055;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.72'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
-    }
-    .sheet::after {
-      width: 210px;
-      height: 210px;
-      right: -95px;
-      top: -95px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-    }
-
-    .masthead { position: relative; z-index: 1; text-align: center; }
-
-    .page-nav {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4px 18px;
-      max-width: 850px;
-      margin: 0 auto clamp(38px, 5vw, 62px);
-      padding-bottom: 13px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .page-nav a {
-      padding: 5px 0;
-      color: var(--ink-soft);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .11em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 180ms ease;
-    }
-
-    .page-nav a:hover,
-    .page-nav a:focus-visible {
-      color: var(--seal-dark);
-      outline: none;
-    }
-
-    .edition {
-      margin: 0 0 clamp(16px, 2vw, 24px);
-      color: var(--ink-soft);
-      font-size: clamp(11px, 1.2vw, 14px);
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-
-    .mark {
-      margin: 0;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(104px, 15vw, 190px);
-      font-weight: 700;
-      line-height: .72;
-      letter-spacing: -.09em;
-    }
-
-    h1 {
-      margin: clamp(20px, 3.5vw, 34px) 0 0;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(36px, 5vw, 62px);
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: -.05em;
-    }
-
-    .tagline {
-      max-width: 590px;
-      margin: 16px auto 0;
-      color: var(--ink-soft);
-      font-size: clamp(16px, 2vw, 21px);
-      font-weight: 600;
-      line-height: 1.55;
-    }
-
-    .project-note {
-      max-width: 650px;
-      margin: 20px auto 0;
-      color: var(--ink);
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.5;
-    }
-
-    .telegram-link {
-      display: inline-flex;
-      margin-top: 17px;
-      padding-bottom: 3px;
-      color: var(--seal-dark);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-decoration: none;
-      text-transform: uppercase;
-      border-bottom: 1px solid currentColor;
-      transition: color 180ms ease, transform 180ms ease;
-    }
-
-    .telegram-link:hover, .telegram-link:focus-visible {
-      color: var(--ink);
-      transform: translateY(-2px);
-    }
-
-    .rule {
-      width: min(100%, 720px);
-      height: 1px;
-      margin: clamp(36px, 5vw, 58px) auto;
-      background: var(--line);
-    }
-
-    .support { position: relative; z-index: 1; }
-
-    .support-heading {
-      margin: 0 0 22px;
-      text-align: center;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(27px, 3.5vw, 38px);
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -.04em;
-    }
-
-    .support-intro {
-      max-width: 600px;
-      margin: -5px auto 24px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(16px, 3vw, 28px);
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .stamp {
-      --rotation: -1.2deg;
-      min-height: 178px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 24px 22px;
-      position: relative;
-      color: var(--seal-dark);
-      text-align: center;
-      text-decoration: none;
-      border: 2px solid currentColor;
-      background: rgba(42, 36, 26, .72);
-      box-shadow: inset 0 0 0 5px rgba(212, 155, 134, .09);
-      overflow: hidden;
-      transform: rotate(var(--rotation));
-      animation: stamp-arrive 720ms 1.38s cubic-bezier(.16, 1, .3, 1) both;
-      transition: transform 320ms cubic-bezier(.16, 1, .3, 1), background-color 260ms ease, box-shadow 320ms ease;
-    }
-
-    .stamp:nth-child(2) { --rotation: 1.2deg; animation-delay: 1.52s; }
-    .stamp::after {
-      content: '↗';
-      position: absolute;
-      right: 17px;
-      bottom: 13px;
-      color: var(--seal-dark);
-      font-size: 24px;
-      font-weight: 700;
-      opacity: 0;
-      transform: translate(-9px, 9px);
-      transition: opacity 220ms ease, transform 260ms cubic-bezier(.16, 1, .3, 1);
-    }
-    .stamp:hover, .stamp:focus-visible {
-      transform: rotate(0) translateY(-8px) scale(1.025);
-      background: rgba(59, 49, 35, .9);
-      box-shadow: inset 0 0 0 5px rgba(212, 155, 134, .15), 0 9px 0 rgba(0, 0, 0, .2);
-    }
-    .stamp:hover::after, .stamp:focus-visible::after { opacity: 1; transform: translate(0, 0); }
-
-    .via {
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-
-    .for {
-      color: var(--ink-soft);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      line-height: 1.45;
-      text-transform: uppercase;
-    }
-
-    .faq {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 850px);
-      margin: clamp(52px, 7vw, 76px) auto 0;
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
-    }
-
-    .spending {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 850px);
-      margin: clamp(52px, 7vw, 76px) auto 0;
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
-    }
-
-    .spending-intro {
-      max-width: 630px;
-      margin: -6px auto 28px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .spending-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .spending-card {
-      min-height: 210px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      background: rgba(42, 36, 26, .48);
-      border: 1px solid var(--line);
-    }
-
-    .spending-card__image {
-      width: 104px;
-      height: 74px;
-      margin: 0 0 16px;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(.72) sepia(.14);
-      border: 1px solid rgba(218, 198, 163, .38);
-    }
-
-    .spending-card__number {
-      height: 74px;
-      margin: 0 0 16px;
-      color: var(--seal-dark);
-      font-family: Literata, Georgia, serif;
-      font-size: 58px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .spending-card h3 {
-      margin: 0 0 8px;
-      color: var(--ink);
-      font-family: Literata, Georgia, serif;
-      font-size: 21px;
-      font-weight: 600;
-      line-height: 1.13;
-      letter-spacing: -.025em;
-    }
-
-    .spending-card p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .projects {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 850px);
-      margin: clamp(52px, 7vw, 76px) auto 0;
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
-    }
-
-    .projects-intro {
-      max-width: 620px;
-      margin: -6px auto 28px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .project-card {
-      display: grid;
-      grid-template-columns: 116px minmax(0, 1fr);
-      gap: 17px;
-      padding: 16px;
-      color: inherit;
-      text-decoration: none;
-      background: rgba(42, 36, 26, .48);
-      border: 1px solid var(--line);
-      transition: transform 260ms cubic-bezier(.16, 1, .3, 1), background-color 260ms ease, border-color 260ms ease;
-    }
-
-    .project-card:hover, .project-card:focus-visible {
-      transform: translateY(-4px);
-      background: rgba(59, 49, 35, .8);
-      border-color: rgba(212, 155, 134, .7);
-    }
-
-    .project-card__image {
-      width: 116px;
-      height: 116px;
-      object-fit: cover;
-      filter: saturate(.72) sepia(.14);
-      border: 1px solid rgba(218, 198, 163, .38);
-    }
-
-    .project-card__type {
-      margin: 0 0 7px;
-      color: var(--seal-dark);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .project-card h3 {
-      margin: 0 0 8px;
-      font-family: Literata, Georgia, serif;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -.025em;
-    }
-
-    .project-card p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .faq-intro {
-      max-width: 640px;
-      margin: -6px auto 26px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .faq-list { border-top: 1px solid var(--line); }
-
+    html { background: var(--background); scroll-behavior: smooth; }
+    body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--foreground); font-family: Manrope, Arial, sans-serif; background: var(--background); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    body::before { content: ""; position: fixed; z-index: 0; top: -24vw; left: 50%; width: min(80vw, 920px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.075), transparent 65%); filter: blur(10px); pointer-events: none; transform: translateX(-50%); animation: ambient-glow 7s ease-in-out infinite alternate; }
+    .sheet { position: relative; z-index: 1; width: min(100% - 48px, 1180px); min-height: 100vh; margin: 0 auto; padding: clamp(38px, 5vw, 68px) 0 46px; overflow: hidden; }
+    h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; }
+    a { font-family: Manrope, Arial, sans-serif; }
+    .page-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin: 0 auto clamp(68px, 7vw, 106px); padding-bottom: 16px; border-bottom: 2px solid var(--foreground); }
+    .page-nav a { color: var(--foreground); font-size: 14px; font-weight: 600; letter-spacing: -.025em; text-decoration: none; transition: opacity 180ms ease; }
+    .page-nav a:hover, .page-nav a:focus-visible { opacity: .62; outline: none; }
+    .masthead { max-width: 1010px; margin: auto; text-align: center; }
+    .edition { margin: 0 0 18px; font-size: 14px; font-weight: 600; letter-spacing: .03em; }
+    .mark { display: none; }
+    h1 { margin: 0; font-size: clamp(62px, 8vw, 122px); font-weight: 600; letter-spacing: -.055em; line-height: .78; animation: reveal-up 700ms cubic-bezier(.2,.75,.25,1) both; }
+    .tagline { max-width: 760px; margin: clamp(34px, 3.8vw, 54px) auto 0; font-size: clamp(22px, 2.3vw, 36px); font-weight: 500; letter-spacing: -.045em; line-height: 1.05; animation: reveal-up 700ms 130ms cubic-bezier(.2,.75,.25,1) both; }
+    .project-note { max-width: 720px; margin: 24px auto 0; font-size: clamp(16px, 1.6vw, 21px); line-height: 1.45; }
+    .telegram-link, .stamp { position: relative; display: inline-flex; align-items: center; justify-content: center; overflow: hidden; color: var(--button-text); text-decoration: none; background: var(--button); transition: transform 220ms cubic-bezier(.2,.75,.25,1), background-color 220ms ease; }
+    .telegram-link { min-height: 58px; margin-top: 30px; padding: 12px 22px; font-size: 17px; font-weight: 600; letter-spacing: -.035em; animation: reveal-up 700ms 250ms cubic-bezier(.2,.75,.25,1) both; }
+    .telegram-link::after, .stamp::after { content: ""; position: absolute; top: -40%; left: -55%; width: 28%; height: 180%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent); transform: rotate(18deg); animation: shimmer 5.5s 1.1s ease-in-out infinite; pointer-events: none; }
+    .rule { height: 3px; margin: clamp(76px, 7.2vw, 110px) 0 clamp(64px, 6vw, 90px); background: var(--foreground); }
+    .support, .spending, .projects, .faq { position: relative; margin-top: clamp(78px, 8vw, 122px); padding-top: clamp(54px, 5.5vw, 82px); border-top: 2px solid var(--foreground); }
+    .support { margin-top: 0; padding-top: 0; border-top: 0; }
+    .support-heading { margin: 0; font-size: clamp(48px, 4.8vw, 72px); font-weight: 600; letter-spacing: -.055em; line-height: .82; text-align: center; }
+    .support-intro, .spending-intro, .projects-intro, .faq-intro { max-width: 700px; margin: 26px auto 0; font-size: clamp(17px, 1.7vw, 22px); line-height: 1.42; text-align: center; }
+    .options { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 28px; max-width: 900px; margin: 38px auto 0; }
+    .stamp { min-height: 136px; flex-direction: column; gap: 9px; padding: 20px; text-align: center; }
+    .via { position: relative; z-index: 1; font-size: clamp(30px, 3vw, 46px); font-weight: 600; letter-spacing: -.06em; line-height: 1; }
+    .for { position: relative; z-index: 1; font-size: 14px; font-weight: 500; letter-spacing: -.02em; }
+    .spending-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .spending-card { min-height: 228px; padding: 24px; border: 1px solid var(--line); }
+    .spending-card__number { margin: 0 0 42px; font-size: 31px; font-weight: 600; letter-spacing: -.05em; }
+    .spending-card h3, .project-card h3 { margin: 0 0 9px; font-size: clamp(26px, 2.35vw, 35px); font-weight: 600; letter-spacing: -.045em; line-height: .9; }
+    .spending-card p, .project-card p, .faq-answer { margin: 0; color: rgba(247,247,247,.76); font-size: 15px; line-height: 1.52; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; margin-top: 36px; }
+    .project-card { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 20px; padding: 16px; color: var(--foreground); text-decoration: none; border: 1px solid var(--line); transition: transform 220ms cubic-bezier(.2,.75,.25,1), border-color 220ms ease; }
+    .project-card__image { width: 120px; height: 120px; object-fit: cover; filter: grayscale(1); }
+    .project-card__type { margin: 0 0 8px !important; color: var(--foreground) !important; font-size: 12px !important; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+    .faq { max-width: 900px; margin-inline: auto; }
+    .faq-list { margin-top: 36px; border-top: 1px solid var(--line); }
     .faq-item { border-bottom: 1px solid var(--line); }
-
-    .faq-item summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 19px 2px;
-      color: var(--ink);
-      cursor: pointer;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(19px, 2.3vw, 25px);
-      font-weight: 600;
-      line-height: 1.25;
-      list-style: none;
-    }
-
+    .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 21px 0; cursor: pointer; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(28px, 3vw, 41px); font-weight: 600; letter-spacing: -.045em; line-height: .9; list-style: none; }
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '+';
-      flex: 0 0 auto;
-      color: var(--seal-dark);
-      font-family: Manrope, sans-serif;
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
+    .faq-item summary::after { content: '+'; flex: 0 0 auto; font-size: 32px; font-weight: 400; }
     .faq-item[open] summary::after { content: '−'; }
-
-    .faq-answer {
-      max-width: 720px;
-      padding: 0 40px 22px 2px;
-      color: var(--ink-soft);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .faq-answer p { margin: 0; }
-
-    footer {
-      position: relative;
-      z-index: 1;
-      max-width: 850px;
-      margin: clamp(44px, 6vw, 68px) auto 0;
-      padding-top: 26px;
-      border-top: 1px solid var(--line);
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: -.01em;
-      line-height: 1.45;
-    }
-
-    .legal-title { margin: 0 0 5px; color: var(--ink); font-size: 15px; font-weight: 700; letter-spacing: .04em; }
-    .legal-copy { margin: 0; }
-
-    .redact-reveal {
-      position: relative;
-      isolation: isolate;
-    }
-
-    .redact-reveal::after {
-      content: '';
-      position: absolute;
-      z-index: 2;
-      inset: -.08em -.12em;
-      background: #080807;
-      border-radius: 1px;
-      transform: scaleX(1);
-      transform-origin: right center;
-      animation: text-uncover 760ms var(--reveal-delay, 0s) cubic-bezier(.76, 0, .24, 1) forwards;
-    }
-
-    .redact-reveal:nth-child(even)::after { transform-origin: left center; }
-
-    @keyframes text-uncover {
-      0%, 30% { transform: scaleX(1); }
-      100% { transform: scaleX(0); }
-    }
-
-    @keyframes stamp-arrive {
-      0% { opacity: 0; transform: rotate(var(--rotation)) translateY(24px) scale(.92); }
-      64% { opacity: 1; transform: rotate(0deg) translateY(-3px) scale(1.015); }
-      100% { opacity: 1; transform: rotate(var(--rotation)) translateY(0) scale(1); }
-    }
-
-    @media (max-width: 620px) {
-      .sheet { padding: 28px 18px 38px; }
-      .sheet::after { width: 130px; height: 130px; right: -62px; top: -62px; }
-      .page-nav { gap: 3px 13px; margin-bottom: 36px; padding-bottom: 11px; }
-      .page-nav a { font-size: 9px; letter-spacing: .09em; }
-      .edition { margin-bottom: 15px; font-size: 10px; letter-spacing: .14em; }
-      .mark { font-size: clamp(96px, 33vw, 142px); }
-      h1 { margin-top: 20px; font-size: clamp(38px, 12vw, 50px); }
-      .tagline { margin-top: 13px; font-size: 16px; }
-      .project-note { margin-top: 18px; font-size: 16px; line-height: 1.48; }
-      .telegram-link { margin-top: 15px; font-size: 11px; }
-      .rule { margin: 34px auto; }
-      .support-heading { margin-bottom: 18px; font-size: 28px; }
-      .options { grid-template-columns: 1fr; gap: 14px; }
-      .stamp { min-height: 152px; padding: 22px 18px; }
-      .via { font-size: 34px; }
-      .for { font-size: 11px; }
-      .spending, .projects, .faq { margin-top: 44px; padding-top: 34px; }
-      .spending-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .spending-card {
-        min-height: 0;
-        display: grid;
-        grid-template-columns: 90px minmax(0, 1fr);
-        column-gap: 15px;
-        padding: 16px;
-      }
-      .spending-card__image {
-        width: 90px;
-        height: 66px;
-        grid-row: span 2;
-        margin: 0;
-      }
-      .spending-card__number {
-        height: auto;
-        grid-row: span 2;
-        margin: 0;
-        font-size: 45px;
-        line-height: .9;
-      }
-      .spending-card h3 { align-self: end; margin-bottom: 4px; font-size: 20px; }
-      .spending-card p { align-self: start; }
-      .project-card { grid-template-columns: 90px minmax(0, 1fr); gap: 14px; padding: 14px; }
-      .project-card__image { width: 90px; height: 90px; }
-      .project-card h3 { font-size: 20px; }
-      .spending-intro, .projects-intro, .faq-intro { margin-bottom: 20px; font-size: 14px; }
-      .faq-item summary { min-height: 66px; padding: 16px 1px; font-size: 20px; }
-      .faq-answer { padding: 0 4px 18px 1px; font-size: 14px; line-height: 1.62; }
-      footer { margin-top: 42px; padding-top: 20px; font-size: 12px; }
-      .legal-title { font-size: 13px; }
-    }
-
-    @media (max-width: 360px) {
-      .sheet { padding-inline: 15px; }
-      .project-note { font-size: 15px; }
-      .stamp { min-height: 142px; }
-      .spending-card { grid-template-columns: 76px minmax(0, 1fr); }
-      .spending-card__image { width: 76px; height: 58px; }
-      .project-card { grid-template-columns: 76px minmax(0, 1fr); }
-      .project-card__image { width: 76px; height: 76px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .stamp { animation: none; transition: none; }
-      .redact-reveal::after { animation: none; display: none; }
-    }
+    .faq-answer { max-width: 760px; padding: 0 42px 22px 0; font-size: 16px; }
+    footer { margin-top: clamp(100px, 10vw, 154px); padding-top: 28px; border-top: 2px solid var(--foreground); font-size: clamp(14px, 1.4vw, 20px); line-height: 1.28; text-align: center; }
+    .legal-title { margin: 0; font-weight: 600; }
+    .legal-copy { margin: 5px 0 0; }
+    html.js .reveal { opacity: 0; transform: translateY(30px); transition: opacity 680ms cubic-bezier(.2,.75,.25,1), transform 680ms cubic-bezier(.2,.75,.25,1); }
+    html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    html.js .reveal--scale { transform: translateY(24px) scale(.97); }
+    .spending-card, .project-card, .faq-item { transition: transform 220ms cubic-bezier(.2,.75,.25,1), border-color 220ms ease, background-color 220ms ease; }
+    .spending-card:hover { transform: translateY(-5px); border-color: var(--foreground); }
+    .faq-item summary { transition: opacity 180ms ease; }
+    .faq-item:hover summary { opacity: .7; }
+    .telegram-link:focus-visible, .stamp:focus-visible, .project-card:focus-visible, .page-nav a:focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
+    @media (hover:hover) { .telegram-link:hover, .stamp:hover { background: #fff; transform: translateY(-4px); } .project-card:hover { border-color: var(--foreground); transform: translateY(-4px); } }
+    .telegram-link:active, .stamp:active, .project-card:active { transform: translateY(0) scale(.98); }
+    @keyframes reveal-up { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ambient-glow { from { opacity: .45; transform: translate(-50%,-2%); } to { opacity: 1; transform: translate(-50%,8%); } }
+    @keyframes shimmer { 0%,58% { left: -55%; } 78%,100% { left: 140%; } }
+    @media (max-width:720px) { .sheet { width: min(100% - 32px,1180px); padding-top: 30px; } .page-nav { justify-content: flex-start; margin-bottom: 68px; } h1 { font-size: clamp(58px,17vw,92px); } .tagline { font-size: clamp(21px,6vw,30px); line-height:1.12; } .rule { height:2px; } .options, .spending-grid, .projects-grid { grid-template-columns:1fr; gap:16px; } .stamp { min-height:106px; } .spending-card { min-height:0; } .spending-card__number { margin-bottom:26px; } .project-card { grid-template-columns:90px minmax(0,1fr); gap:14px; } .project-card__image { width:90px; height:90px; } }
+    @media (max-width:440px) { .sheet { width:min(100% - 48px,1180px); padding-top:25px; padding-bottom:36px; } .page-nav { gap:8px 17px; margin-bottom:58px; padding-bottom:13px; } .page-nav a { font-size:12px; } h1 { font-size:clamp(52px,15.5vw,68px); line-height:.82; } .edition { font-size:12px; } .tagline { margin-top:30px; font-size:21px; } .project-note { font-size:16px; } .telegram-link { width:100%; min-height:62px; } .support, .spending, .projects, .faq { margin-top:82px; padding-top:50px; } .support-heading { font-size:52px; } .support-intro, .spending-intro, .projects-intro, .faq-intro { font-size:16px; } .faq-answer { padding-right:0; font-size:15px; } footer { margin-top:90px; font-size:14px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } html.js .reveal { opacity:1; transform:none; } }
   </style>
 </head>
 <body>
@@ -596,7 +89,7 @@
     <header class="masthead">
       <p class="edition">Независимое медиа · Россия</p>
       <p class="mark" aria-hidden="true">Ц.</p>
-      <h1>Центр Ц.</h1>
+      <h1>Поддержите<br>«Центр Ц.»</h1>
       <p class="tagline">О цензуре и жизни в России.<br>Честно, внимательно, без самоцензуры.</p>
       <p class="project-note">«Центр Ц.» — идейный проект. Мы не просим донатить из обязанности: если вам близка наша работа, поддержка поможет нам продолжать говорить о важном.</p>
       <a class="telegram-link" href="https://t.me/+SsUYluiH7i40NmZi" target="_blank" rel="noopener noreferrer">Подписаться в Telegram&nbsp;↗</a>
@@ -708,18 +201,28 @@
   </main>
   <script>
     (function () {
-      var selector = '.sheet h1, .sheet h2, .sheet h3, .sheet p, .sheet summary, .sheet .via, .sheet .for, .sheet .telegram-link, .sheet footer';
-      var items = document.querySelectorAll(selector);
-      items.forEach(function (item, index) {
-        item.classList.add('redact-reveal');
-        item.style.setProperty('--reveal-delay', Math.min(index * 55, 1450) + 'ms');
+      var root = document.documentElement;
+      root.classList.add('js');
+      var targets = document.querySelectorAll('.support, .spending, .projects, .faq, footer, .spending-card, .project-card, .faq-item');
+      targets.forEach(function (element, index) {
+        element.classList.add('reveal');
+        if (element.matches('.spending-card, .project-card')) element.classList.add('reveal--scale');
+        element.style.transitionDelay = Math.min((index % 4) * 90, 270) + 'ms';
       });
-      window.setTimeout(function () {
-        items.forEach(function (item) {
-          item.classList.remove('redact-reveal');
-          item.style.removeProperty('--reveal-delay');
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+        targets.forEach(function (element) { element.classList.add('is-visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         });
-      }, 2400);
+      }, { threshold: 0.12 });
+      targets.forEach(function (element) { observer.observe(element); });
     }());
   </script>
 </body>
