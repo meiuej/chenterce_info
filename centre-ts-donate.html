@@ -5,616 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Поддержите независимое медиа Центр Ц.">
   <title>Центр Ц. — поддержать</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --paper: #211d16;
-      --paper-light: #211d16;
-      --paper-deep: #16140f;
-      --ink: #e7ddc9;
-      --ink-soft: #bcae96;
-      --line: rgba(218, 198, 163, .3);
-      --seal: #bb7662;
-      --seal-dark: #d49b86;
-    }
-
+    :root { color-scheme: dark; --ink: #fff; --line: rgba(255,255,255,.85); }
     * { box-sizing: border-box; }
-
-    html { -webkit-font-smoothing: antialiased; }
-
-    body {
-      min-width: 320px;
-      min-height: 100vh;
-      margin: 0;
-      color: var(--ink);
-      font-family: Manrope, Arial, sans-serif;
-      background-color: var(--paper-deep);
-      background-image:
-        radial-gradient(circle at 16% 10%, rgba(138, 111, 65, .16), transparent 25rem),
-        radial-gradient(circle at 82% 86%, rgba(74, 52, 27, .24), transparent 29rem);
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; background: #0e0e0e; color: var(--ink); font-family: "Times New Roman", Times, serif; }
+    .sheet { position: relative; isolation: isolate; overflow: hidden; background: #0e0e0e; }
+    .sheet::before, .sheet::after {
+      content: ''; position: absolute; z-index: -1; pointer-events: none;
+      width: clamp(580px, 85vw, 1100px); aspect-ratio: 1; left: 100%;
+      background: radial-gradient(circle, rgba(57,126,152,.85), rgba(57,126,152,.3) 35%, transparent 70%);
+      animation: background-drift 44s linear infinite;
+      will-change: transform;
     }
-
-    .sheet {
-      width: 100%;
-      min-height: 100vh;
-      margin: auto;
-      padding: clamp(26px, 5vw, 68px) clamp(22px, 6vw, 88px) clamp(34px, 5vw, 64px);
-      position: relative;
-      overflow: hidden;
-      background: var(--paper-light);
-      background-image:
-        radial-gradient(ellipse at top left, rgba(146, 118, 68, .11), transparent 42%);
+    .sheet::before { top: 5%; animation-delay: -12s; }
+    .sheet::after { top: 49%; animation-duration: 56s; animation-delay: -38s; }
+    @keyframes background-drift {
+      0% { transform: translateX(0); opacity: 0; }
+      12%, 88% { opacity: 1; }
+      100% { transform: translateX(calc(-100vw - 100%)); opacity: 0; }
     }
-
-    .sheet::before,
-    .sheet::after {
-      content: '';
-      position: absolute;
-      pointer-events: none;
-    }
-
-    .sheet::before {
-      inset: 0;
-      border: 0;
-      opacity: .055;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.72'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
-    }
-    .sheet::after {
-      width: 210px;
-      height: 210px;
-      right: -95px;
-      top: -95px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-    }
-
-    .masthead { position: relative; z-index: 1; text-align: center; }
-
-    .page-nav {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 4px 18px;
-      max-width: 850px;
-      margin: 0 auto clamp(38px, 5vw, 62px);
-      padding-bottom: 13px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .page-nav a {
-      padding: 5px 0;
-      color: var(--ink-soft);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .11em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color 180ms ease;
-    }
-
-    .page-nav a:hover,
-    .page-nav a:focus-visible {
-      color: var(--seal-dark);
-      outline: none;
-    }
-
-    .edition {
-      margin: 0 0 clamp(16px, 2vw, 24px);
-      color: var(--ink-soft);
-      font-size: clamp(11px, 1.2vw, 14px);
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-
-    .mark {
-      margin: 0;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(104px, 15vw, 190px);
-      font-weight: 700;
-      line-height: .72;
-      letter-spacing: -.09em;
-    }
-
-    h1 {
-      margin: clamp(20px, 3.5vw, 34px) 0 0;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(36px, 5vw, 62px);
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: -.05em;
-    }
-
-    .tagline {
-      max-width: 590px;
-      margin: 16px auto 0;
-      color: var(--ink-soft);
-      font-size: clamp(16px, 2vw, 21px);
-      font-weight: 600;
-      line-height: 1.55;
-    }
-
-    .project-note {
-      max-width: 650px;
-      margin: 20px auto 0;
-      color: var(--ink);
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.5;
-    }
-
-    .telegram-link {
-      display: inline-flex;
-      margin-top: 17px;
-      padding-bottom: 3px;
-      color: var(--seal-dark);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-decoration: none;
-      text-transform: uppercase;
-      border-bottom: 1px solid currentColor;
-      transition: color 180ms ease, transform 180ms ease;
-    }
-
-    .telegram-link:hover, .telegram-link:focus-visible {
-      color: var(--ink);
-      transform: translateY(-2px);
-    }
-
-    .rule {
-      width: min(100%, 720px);
-      height: 1px;
-      margin: clamp(36px, 5vw, 58px) auto;
-      background: var(--line);
-    }
-
-    .support { position: relative; z-index: 1; }
-
-    .support-heading {
-      margin: 0 0 22px;
-      text-align: center;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(27px, 3.5vw, 38px);
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -.04em;
-    }
-
-    .support-intro {
-      max-width: 600px;
-      margin: -5px auto 24px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(16px, 3vw, 28px);
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .stamp {
-      --rotation: -1.2deg;
-      min-height: 178px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 24px 22px;
-      position: relative;
-      color: var(--seal-dark);
-      text-align: center;
-      text-decoration: none;
-      border: 2px solid currentColor;
-      background: rgba(42, 36, 26, .72);
-      box-shadow: inset 0 0 0 5px rgba(212, 155, 134, .09);
-      overflow: hidden;
-      transform: rotate(var(--rotation));
-      animation: stamp-arrive 720ms 1.38s cubic-bezier(.16, 1, .3, 1) both;
-      transition: transform 320ms cubic-bezier(.16, 1, .3, 1), background-color 260ms ease, box-shadow 320ms ease;
-    }
-
-    .stamp:nth-child(2) { --rotation: 1.2deg; animation-delay: 1.52s; }
-    .stamp::after {
-      content: '↗';
-      position: absolute;
-      right: 17px;
-      bottom: 13px;
-      color: var(--seal-dark);
-      font-size: 24px;
-      font-weight: 700;
-      opacity: 0;
-      transform: translate(-9px, 9px);
-      transition: opacity 220ms ease, transform 260ms cubic-bezier(.16, 1, .3, 1);
-    }
-    .stamp:hover, .stamp:focus-visible {
-      transform: rotate(0) translateY(-8px) scale(1.025);
-      background: rgba(59, 49, 35, .9);
-      box-shadow: inset 0 0 0 5px rgba(212, 155, 134, .15), 0 9px 0 rgba(0, 0, 0, .2);
-    }
-    .stamp:hover::after, .stamp:focus-visible::after { opacity: 1; transform: translate(0, 0); }
-
-    .via {
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-
-    .for {
-      color: var(--ink-soft);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      line-height: 1.45;
-      text-transform: uppercase;
-    }
-
-    .faq {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 850px);
-      margin: clamp(52px, 7vw, 76px) auto 0;
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
-    }
-
-    .spending {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 850px);
-      margin: clamp(52px, 7vw, 76px) auto 0;
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
-    }
-
-    .spending-intro {
-      max-width: 630px;
-      margin: -6px auto 28px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .spending-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .spending-card {
-      min-height: 210px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      background: rgba(42, 36, 26, .48);
-      border: 1px solid var(--line);
-    }
-
-    .spending-card__image {
-      width: 104px;
-      height: 74px;
-      margin: 0 0 16px;
-      object-fit: cover;
-      object-position: center;
-      filter: saturate(.72) sepia(.14);
-      border: 1px solid rgba(218, 198, 163, .38);
-    }
-
-    .spending-card__number {
-      height: 74px;
-      margin: 0 0 16px;
-      color: var(--seal-dark);
-      font-family: Literata, Georgia, serif;
-      font-size: 58px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .spending-card h3 {
-      margin: 0 0 8px;
-      color: var(--ink);
-      font-family: Literata, Georgia, serif;
-      font-size: 21px;
-      font-weight: 600;
-      line-height: 1.13;
-      letter-spacing: -.025em;
-    }
-
-    .spending-card p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .projects {
-      position: relative;
-      z-index: 1;
-      width: min(100%, 850px);
-      margin: clamp(52px, 7vw, 76px) auto 0;
-      padding-top: clamp(34px, 5vw, 54px);
-      border-top: 1px solid var(--line);
-    }
-
-    .projects-intro {
-      max-width: 620px;
-      margin: -6px auto 28px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .project-card {
-      display: grid;
-      grid-template-columns: 116px minmax(0, 1fr);
-      gap: 17px;
-      padding: 16px;
-      color: inherit;
-      text-decoration: none;
-      background: rgba(42, 36, 26, .48);
-      border: 1px solid var(--line);
-      transition: transform 260ms cubic-bezier(.16, 1, .3, 1), background-color 260ms ease, border-color 260ms ease;
-    }
-
-    .project-card:hover, .project-card:focus-visible {
-      transform: translateY(-4px);
-      background: rgba(59, 49, 35, .8);
-      border-color: rgba(212, 155, 134, .7);
-    }
-
-    .project-card__image {
-      width: 116px;
-      height: 116px;
-      object-fit: cover;
-      filter: saturate(.72) sepia(.14);
-      border: 1px solid rgba(218, 198, 163, .38);
-    }
-
-    .project-card__type {
-      margin: 0 0 7px;
-      color: var(--seal-dark);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .project-card h3 {
-      margin: 0 0 8px;
-      font-family: Literata, Georgia, serif;
-      font-size: 22px;
-      font-weight: 600;
-      line-height: 1.12;
-      letter-spacing: -.025em;
-    }
-
-    .project-card p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .faq-intro {
-      max-width: 640px;
-      margin: -6px auto 26px;
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .faq-list { border-top: 1px solid var(--line); }
-
+    .masthead, .support, .spending, .projects, .faq { width: min(100% - 64px, 1000px); margin-inline: auto; }
+    .masthead { padding: 94px 0 72px; text-align: center; }
+    h1 { margin: 0 0 12px; font-size: clamp(40px, 5.5vw, 68px); font-style: italic; font-weight: 700; letter-spacing: -.055em; }
+    .tagline { max-width: 900px; margin: 0 auto; font-size: clamp(32px, 5.5vw, 68px); font-style: italic; line-height: .96; letter-spacing: -.055em; }
+    .project-note { max-width: 750px; margin: 32px auto 0; font-size: clamp(19px, 2.4vw, 27px); line-height: 1.05; letter-spacing: -.03em; }
+    .rule { width: min(100% - 64px, 1000px); height: 1px; margin: 0 auto; background: var(--line); }
+    .support { padding: 74px 0 80px; text-align: center; }
+    .support-heading { margin: 0 0 14px; font-size: clamp(34px, 5.5vw, 66px); font-style: italic; font-weight: 400; line-height: 1.02; letter-spacing: -.05em; text-align: center; }
+    .support-intro, .spending-intro, .projects-intro, .faq-intro { max-width: 810px; margin: 0 auto; font-size: clamp(19px, 2.4vw, 26px); line-height: 1.08; text-align: center; letter-spacing: -.03em; }
+    .options { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; max-width: 770px; margin: 54px auto 0; }
+    .stamp { display: flex; flex-direction: column; justify-content: center; padding: 20px 15px; min-height: 150px; border: 2px solid white; border-radius: 21px; color: inherit; text-decoration: none; transition: background .2s, transform .2s; }
+    .stamp:hover { background: rgba(255,255,255,.09); transform: translateY(-3px); }
+    .via { font-size: clamp(40px, 6vw, 72px); letter-spacing: -.065em; line-height: 1; }
+    .for { font-size: clamp(20px, 2.7vw, 29px); font-style: italic; }
+    .spending, .projects, .faq { padding: 60px 0 0; border-top: 1px solid var(--line); }
+    .spending-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; margin-top: 60px; }
+    .spending-card { padding: 15px 20px; border: 1px solid white; border-radius: 15px; }
+    .spending-card h3 { margin: 0 0 12px; font-size: clamp(26px, 3.7vw, 44px); font-weight: 400; letter-spacing: -.05em; line-height: .98; }
+    .spending-card p { margin: 0; font-size: 18px; font-style: italic; line-height: 1.08; }
+    .projects, .faq { margin-top: 76px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 26px; margin-top: 38px; }
+    .project-card { display: block; padding: 26px; border: 1px solid white; border-radius: 15px; color: inherit; text-decoration: none; transition: background .2s; }
+    .project-card:hover { background: rgba(255,255,255,.08); }
+    .project-card__type { margin: 0 0 18px; font-size: 18px; font-style: italic; }
+    .project-card h3 { margin: 0 0 16px; font-size: clamp(28px,3.5vw,40px); font-weight: 400; line-height: 1; letter-spacing: -.04em; }
+    .project-card p:not(.project-card__type) { margin: 0; font-size: 20px; line-height: 1.2; }
+    .project-card__link { display: inline-block; margin-top: 24px; font-size: 20px; font-style: italic; text-decoration: underline; text-underline-offset: 5px; overflow-wrap: anywhere; }
+    .faq-list { margin-top: 36px; border-top: 1px solid var(--line); }
     .faq-item { border-bottom: 1px solid var(--line); }
-
-    .faq-item summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 19px 2px;
-      color: var(--ink);
-      cursor: pointer;
-      font-family: Literata, Georgia, serif;
-      font-size: clamp(19px, 2.3vw, 25px);
-      font-weight: 600;
-      line-height: 1.25;
-      list-style: none;
-    }
-
+    .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; font-size: clamp(23px,3vw,32px); cursor: pointer; list-style: none; }
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after {
-      content: '+';
-      flex: 0 0 auto;
-      color: var(--seal-dark);
-      font-family: Manrope, sans-serif;
-      font-size: 28px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
+    .faq-item summary::after { content: '+'; font-size: 34px; flex-shrink: 0; }
     .faq-item[open] summary::after { content: '−'; }
-
-    .faq-answer {
-      max-width: 720px;
-      padding: 0 40px 22px 2px;
-      color: var(--ink-soft);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
+    .faq-answer { max-width: 850px; padding: 0 36px 26px 0; font-size: 21px; line-height: 1.35; }
     .faq-answer p { margin: 0; }
-
-    footer {
-      position: relative;
-      z-index: 1;
-      max-width: 850px;
-      margin: clamp(44px, 6vw, 68px) auto 0;
-      padding-top: 26px;
-      border-top: 1px solid var(--line);
-      color: var(--ink-soft);
-      text-align: center;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: -.01em;
-      line-height: 1.45;
+    a:focus-visible, summary:focus-visible { outline: 2px solid #96dcf7; outline-offset: 6px; }
+    footer { margin-top: 90px; padding: 38px 24px; background: #000; text-align: center; font-size: 18px; font-weight: 700; font-style: italic; line-height: 1.05; }
+    footer p { margin: 0; }
+    @media (max-width: 640px) {
+      .masthead, .support, .spending, .projects, .faq, .rule { width: calc(100% - 40px); }
+      .masthead { padding: 58px 0 44px; }
+      .tagline br { display: none; }
+      .project-note { margin-top: 26px; line-height: 1.2; }
+      .support { padding: 44px 0; }
+      .options { gap: 18px; margin-top: 32px; grid-template-columns: 1fr; }
+      .stamp { min-height: 126px; }
+      .spending, .projects, .faq { padding-top: 42px; }
+      .spending-grid, .projects-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 30px; }
+      .spending-card { padding: 22px; }
+      .spending-card h3 { font-size: 32px; }
+      .projects, .faq { margin-top: 48px; }
+      .faq-answer { font-size: 19px; padding-right: 12px; }
+      footer { margin-top: 56px; font-size: 15px; }
     }
-
-    .legal-title { margin: 0 0 5px; color: var(--ink); font-size: 15px; font-weight: 700; letter-spacing: .04em; }
-    .legal-copy { margin: 0; }
-
-    .redact-reveal {
-      position: relative;
-      isolation: isolate;
+    .stamp, .project-card { transition: background .25s, transform .3s, box-shadow .3s, border-color .3s; }
+    @media (hover: hover) {
+      .stamp:hover, .project-card:hover { transform: translateY(-5px); border-color: #b3e8fa; box-shadow: 0 12px 32px rgba(0,0,0,.2); }
+      .project-card:hover .project-card__link { transform: translateX(5px); }
     }
-
-    .redact-reveal::after {
-      content: '';
-      position: absolute;
-      z-index: 2;
-      inset: -.08em -.12em;
-      background: #080807;
-      border-radius: 1px;
-      transform: scaleX(1);
-      transform-origin: right center;
-      animation: text-uncover 760ms var(--reveal-delay, 0s) cubic-bezier(.76, 0, .24, 1) forwards;
-    }
-
-    .redact-reveal:nth-child(even)::after { transform-origin: left center; }
-
-    @keyframes text-uncover {
-      0%, 30% { transform: scaleX(1); }
-      100% { transform: scaleX(0); }
-    }
-
-    @keyframes stamp-arrive {
-      0% { opacity: 0; transform: rotate(var(--rotation)) translateY(24px) scale(.92); }
-      64% { opacity: 1; transform: rotate(0deg) translateY(-3px) scale(1.015); }
-      100% { opacity: 1; transform: rotate(var(--rotation)) translateY(0) scale(1); }
-    }
-
-    @media (max-width: 620px) {
-      .sheet { padding: 28px 18px 38px; }
-      .sheet::after { width: 130px; height: 130px; right: -62px; top: -62px; }
-      .page-nav { gap: 3px 13px; margin-bottom: 36px; padding-bottom: 11px; }
-      .page-nav a { font-size: 9px; letter-spacing: .09em; }
-      .edition { margin-bottom: 15px; font-size: 10px; letter-spacing: .14em; }
-      .mark { font-size: clamp(96px, 33vw, 142px); }
-      h1 { margin-top: 20px; font-size: clamp(38px, 12vw, 50px); }
-      .tagline { margin-top: 13px; font-size: 16px; }
-      .project-note { margin-top: 18px; font-size: 16px; line-height: 1.48; }
-      .telegram-link { margin-top: 15px; font-size: 11px; }
-      .rule { margin: 34px auto; }
-      .support-heading { margin-bottom: 18px; font-size: 28px; }
-      .options { grid-template-columns: 1fr; gap: 14px; }
-      .stamp { min-height: 152px; padding: 22px 18px; }
-      .via { font-size: 34px; }
-      .for { font-size: 11px; }
-      .spending, .projects, .faq { margin-top: 44px; padding-top: 34px; }
-      .spending-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .spending-card {
-        min-height: 0;
-        display: grid;
-        grid-template-columns: 90px minmax(0, 1fr);
-        column-gap: 15px;
-        padding: 16px;
-      }
-      .spending-card__image {
-        width: 90px;
-        height: 66px;
-        grid-row: span 2;
-        margin: 0;
-      }
-      .spending-card__number {
-        height: auto;
-        grid-row: span 2;
-        margin: 0;
-        font-size: 45px;
-        line-height: .9;
-      }
-      .spending-card h3 { align-self: end; margin-bottom: 4px; font-size: 20px; }
-      .spending-card p { align-self: start; }
-      .project-card { grid-template-columns: 90px minmax(0, 1fr); gap: 14px; padding: 14px; }
-      .project-card__image { width: 90px; height: 90px; }
-      .project-card h3 { font-size: 20px; }
-      .spending-intro, .projects-intro, .faq-intro { margin-bottom: 20px; font-size: 14px; }
-      .faq-item summary { min-height: 66px; padding: 16px 1px; font-size: 20px; }
-      .faq-answer { padding: 0 4px 18px 1px; font-size: 14px; line-height: 1.62; }
-      footer { margin-top: 42px; padding-top: 20px; font-size: 12px; }
-      .legal-title { font-size: 13px; }
-    }
-
-    @media (max-width: 360px) {
-      .sheet { padding-inline: 15px; }
-      .project-note { font-size: 15px; }
-      .stamp { min-height: 142px; }
-      .spending-card { grid-template-columns: 76px minmax(0, 1fr); }
-      .spending-card__image { width: 76px; height: 58px; }
-      .project-card { grid-template-columns: 76px minmax(0, 1fr); }
-      .project-card__image { width: 76px; height: 76px; }
-    }
-
+    .stamp:active, .project-card:active { transform: translateY(0) scale(.985); }
+    .project-card__link { transition: transform .3s; }
+    .faq-item summary { transition: color .2s; }
+    .faq-item summary:hover { color: #b3e8fa; }
+    .faq-item summary::after { transition: transform .3s; }
+    .faq-item[open] summary::after { content: '+'; transform: rotate(45deg); }
+    .motion-pending { opacity: 0; transform: translateY(22px); }
+    .motion-visible { animation: reveal-in .7s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes reveal-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .motion-paused::before, .motion-paused::after { animation-play-state: paused; }
     @media (prefers-reduced-motion: reduce) {
-      .stamp { animation: none; transition: none; }
-      .redact-reveal::after { animation: none; display: none; }
+      html { scroll-behavior: auto; }
+      .sheet::before, .sheet::after { animation: none; will-change: auto; opacity: 1; }
+      .sheet::before { left: 60%; } .sheet::after { left: -35%; }
+      .stamp, .project-card, .project-card__link, .faq-item summary, .faq-item summary::after { transition: none; }
+      .motion-pending, .motion-visible { animation: none; opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
   <main class="sheet">
-    <nav class="page-nav" aria-label="Навигация по странице">
-      <a href="index.html">Главная</a>
-      <a href="#support">Поддержать</a>
-      <a href="#spending">На что пойдут</a>
-      <a href="#projects">Проекты</a>
-      <a href="#faq">Вопросы</a>
-    </nav>
-
     <header class="masthead">
-      <p class="edition">Независимое медиа · Россия</p>
-      <p class="mark" aria-hidden="true">Ц.</p>
-      <h1>Центр Ц.</h1>
-      <p class="tagline">О цензуре и жизни в России.<br>Честно, внимательно, без самоцензуры.</p>
+      <h1>ЦЕНТР Ц.</h1>
+      <p class="tagline">О жизни в России. Честно,<br>внимательно, без самоцензуры.</p>
       <p class="project-note">«Центр Ц.» — идейный проект. Мы не просим донатить из обязанности: если вам близка наша работа, поддержка поможет нам продолжать говорить о важном.</p>
-      <a class="telegram-link" href="https://t.me/+SsUYluiH7i40NmZi" target="_blank" rel="noopener noreferrer">Подписаться в Telegram&nbsp;↗</a>
+
     </header>
 
     <div class="rule" aria-hidden="true"></div>
 
     <section class="support" id="support" aria-labelledby="support-title">
-      <h2 class="support-heading" id="support-title">Поддержать редакцию</h2>
+      <h2 class="support-heading" id="support-title">Поддержать редакцию.</h2>
       <p class="support-intro">У нас нет инвесторов и государственных грантов — только читатели, которым важна независимая редакция.</p>
       <div class="options">
         <a class="stamp" href="https://pay.cloudtips.ru/p/ed5ec252" target="_blank" rel="noopener noreferrer">
           <span class="via">CloudTips</span>
-          <span class="for">Для российских карт</span>
+          <span class="for">Помочь из России</span>
         </a>
         <a class="stamp" href="https://www.patreon.com/cw/TsentrTs" target="_blank" rel="noopener noreferrer">
           <span class="via">Patreon</span>
-          <span class="for">Для других валют</span>
+          <span class="for">Помочь из других стран</span>
         </a>
       </div>
     </section>
@@ -624,41 +134,38 @@
       <p class="spending-intro">Донаты помогают нам планировать работу и выпускать материалы, которые требуют времени, внимания и независимости.</p>
       <div class="spending-grid">
         <article class="spending-card">
-          <div class="spending-card__number" aria-hidden="true">01</div>
-          <h3>Работа редакции</h3>
+          <h3><i>1.</i> Работа редакции</h3>
           <p>Подготовка текстов, редактура, проверка фактов, работа сайта и каналов проекта.</p>
         </article>
         <article class="spending-card">
-          <div class="spending-card__number" aria-hidden="true">02</div>
-          <h3>Интервью и репортажи</h3>
+          <h3><i>2.</i> Интервью и репортажи</h3>
           <p>Разговоры с правозащитниками и героями, чьи истории важно услышать и сохранить.</p>
         </article>
         <article class="spending-card">
-          <div class="spending-card__number" aria-hidden="true">03</div>
-          <h3>Специальные проекты</h3>
+          <h3><i>3.</i> Специальные проекты</h3>
           <p>Понятные материалы о выборах, правах и о том, как защитить свой голос.</p>
         </article>
       </div>
     </section>
 
     <section class="projects" id="projects" aria-labelledby="projects-title">
-      <h2 class="support-heading" id="projects-title">Что уже сделано</h2>
+      <h2 class="support-heading" id="projects-title">Что мы уже сделали</h2>
       <p class="projects-intro">Мы уже выпускаем материалы, которые помогают увидеть важное, разобраться в происходящем и действовать осознанно.</p>
       <div class="projects-grid">
         <a class="project-card" href="https://youtu.be/QiKIW2X_VVM?si=Dqavt73WGXZpMaJh" target="_blank" rel="noopener noreferrer">
-          <img class="project-card__image" src="rights-defenders-interview.png" alt="Превью видео об Антоне Филимонове">
           <div>
             <p class="project-card__type">Видео</p>
             <h3>Дело Антона Филимонова</h3>
             <p>Рассказали, как правозащитники помогли спасти жизнь Антону Филимонову, привлекли внимание к его истории и добились судебного разбирательства.</p>
+            <span class="project-card__link">Смотреть видео ↗</span>
           </div>
         </a>
-        <a class="project-card" href="https://t.me/savevote/4" target="_blank" rel="noopener noreferrer">
-          <img class="project-card__image" src="election-guide.png" alt="Превью памятки Сохранить голос">
+        <a class="project-card" href="https://vote.chenterce.info" target="_blank" rel="noopener noreferrer">
           <div>
-            <p class="project-card__type">Памятка</p>
+            <p class="project-card__type">Проект</p>
             <h3>«Сохранить голос»</h3>
-            <p>Собрали понятную инструкцию: как подготовиться к голосованию, проверить бюллетень, сохранить тайну выбора и сообщить о возможных нарушениях.</p>
+            <p>Создали проект «Сохранить голос».</p>
+            <span class="project-card__link">vote.chenterce.info ↗</span>
           </div>
         </a>
       </div>
@@ -668,12 +175,6 @@
       <h2 class="support-heading" id="faq-title">Вопросы и ответы</h2>
       <p class="faq-intro">Мы ценим ваше доверие и открыто рассказываем, как устроена поддержка «Центра Ц.».</p>
       <div class="faq-list">
-        <details class="faq-item" open>
-          <summary>Безопасно ли поддерживать «Центр Ц.»?</summary>
-          <div class="faq-answer">
-            <p>По информации редакции, «Центр Ц.» не имеет статуса иностранного агента, не признан нежелательной или экстремистской организацией. Поддержка проекта — добровольное пожертвование независимой редакции. Если вам необходима оценка вашей личной ситуации, лучше предварительно обратиться к юристу.</p>
-          </div>
-        </details>
         <details class="faq-item">
           <summary>На что пойдут деньги?</summary>
           <div class="faq-answer">
@@ -695,7 +196,7 @@
         <details class="faq-item">
           <summary>Можно ли поддержать анонимно?</summary>
           <div class="faq-answer">
-            <p>Да. Платёжные сервисы не публикуют данные вашей карты. При желании укажите нейтральное имя в профиле и выберите привычный для вас способ оплаты.</p>
+            <p>Возможность скрыть имя и состав передаваемых данных зависят от выбранного платёжного сервиса. Перед переводом проверьте его настройки приватности и условия обработки данных.</p>
           </div>
         </details>
       </div>
@@ -706,21 +207,46 @@
       <p class="legal-copy">Center C. is an independent media project.<br>All donations are voluntary and are used solely to support the project's activities.<br>The content published on this website is provided for informational purposes only.<br>All rights reserved.</p>
     </footer>
   </main>
+
   <script>
-    (function () {
-      var selector = '.sheet h1, .sheet h2, .sheet h3, .sheet p, .sheet summary, .sheet .via, .sheet .for, .sheet .telegram-link, .sheet footer';
-      var items = document.querySelectorAll(selector);
-      items.forEach(function (item, index) {
-        item.classList.add('redact-reveal');
-        item.style.setProperty('--reveal-delay', Math.min(index * 55, 1450) + 'ms');
-      });
-      window.setTimeout(function () {
-        items.forEach(function (item) {
-          item.classList.remove('redact-reveal');
-          item.style.removeProperty('--reveal-delay');
+    (() => {
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const revealItems = document.querySelectorAll('.masthead > *, .support-heading, .support-intro, .spending-intro, .projects-intro, .faq-intro, .options, .spending-grid, .projects-grid, .faq-list');
+      if ('IntersectionObserver' in window && !reduced.matches) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(({target, isIntersecting}) => {
+            if (!isIntersecting) return;
+            target.classList.remove('motion-pending');
+            target.classList.add('motion-visible');
+            observer.unobserve(target);
+          });
+        }, {threshold: .08});
+        revealItems.forEach(item => { item.classList.add('motion-pending'); observer.observe(item); });
+        reduced.addEventListener('change', () => {
+          if (reduced.matches) { observer.disconnect(); revealItems.forEach(item => item.classList.remove('motion-pending')); }
         });
-      }, 2400);
-    }());
+      }
+      document.addEventListener('visibilitychange', () => {
+        document.querySelector('.sheet').classList.toggle('motion-paused', document.hidden);
+      });
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const summary = item.querySelector('summary');
+        const answer = item.querySelector('.faq-answer');
+        let animation, expanded = item.open;
+        summary.addEventListener('click', event => {
+          if (reduced.matches || !item.animate) return;
+          event.preventDefault();
+          expanded = !(animation ? expanded : item.open);
+          const from = item.getBoundingClientRect().height;
+          if (animation) animation.cancel();
+          item.open = true;
+          const to = summary.getBoundingClientRect().height + (expanded ? answer.getBoundingClientRect().height : 0) + 1;
+          item.style.overflow = 'hidden';
+          animation = item.animate({height: [from + 'px', to + 'px']}, {duration: 280, easing: 'cubic-bezier(.2,.7,.2,1)'});
+          animation.onfinish = () => { item.open = expanded; item.style.overflow = ''; animation = null; };
+        });
+      });
+    })();
   </script>
 </body>
 </html>
