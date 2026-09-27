@@ -102,6 +102,21 @@
       .stamp, .project-card, .project-card__link, .faq-item summary, .faq-item summary::after { transition: none; }
       .motion-pending, .motion-visible { animation: none; opacity: 1; transform: none; }
     }
+
+/* Crossed-out payment method with the explanation on the stripe. */
+.donation-unavailable { position: relative; overflow: hidden; min-height: 150px; }
+.donation-unavailable > span:not(.donation-unavailable__notice) { opacity: .35; }
+.donation-unavailable__notice {
+  position: absolute; top: 50%; left: -2%; width: 104%;
+  transform: translateY(-50%) rotate(-9deg);
+  padding: 8px 20px; border-block: 1px solid #fff;
+  background: #fff; color: #0e0e0e; text-align: center;
+  font: 600 15px/1.25 Arial, sans-serif;
+}
+.donation-unavailable:hover, .donation-unavailable:active {
+  transform: none; box-shadow: none; border-color: #fff;
+}
+.stamp.donation-unavailable:hover { background: transparent; }
   </style>
 </head>
 <body>
@@ -119,10 +134,11 @@
       <h2 class="support-heading" id="support-title">Поддержать редакцию.</h2>
       <p class="support-intro">У нас нет инвесторов и государственных грантов — только читатели, которым важна независимая редакция.</p>
       <div class="options">
-        <a class="stamp" href="https://pay.cloudtips.ru/p/ed5ec252" target="_blank" rel="noopener noreferrer">
+        <div class="stamp donation-unavailable" aria-disabled="true">
           <span class="via">CloudTips</span>
           <span class="for">Помочь из России</span>
-        </a>
+          <span class="donation-unavailable__notice">способ недоступен для безопасности редакции</span>
+        </div>
         <a class="stamp" href="https://www.patreon.com/cw/TsentrTs" target="_blank" rel="noopener noreferrer">
           <span class="via">Patreon</span>
           <span class="for">Помочь из других стран</span>
@@ -191,7 +207,7 @@
         <details class="faq-item">
           <summary>Каким способом можно поддержать?</summary>
           <div class="faq-answer">
-            <p>CloudTips подойдёт для российских карт, Patreon — для платежей в других валютах. Выберите вариант, который удобен именно вам.</p>
+            <p>CloudTips недоступен для безопасности редакции. Поддержать нас можно через Patreon.</p>
           </div>
         </details>
         <details class="faq-item">

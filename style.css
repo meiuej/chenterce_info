@@ -1162,3 +1162,18 @@ img {
     font-size: 0.82rem;
   }
 }
+
+/* Crossed-out payment method with the explanation on the stripe. */
+.donation-unavailable { position: relative; overflow: hidden; min-height: 150px; }
+.donation-unavailable > span:not(.donation-unavailable__notice) { opacity: .35; }
+.donation-unavailable__notice {
+  position: absolute; top: 50%; left: -2%; width: 104%;
+  transform: translateY(-50%) rotate(-9deg);
+  padding: 8px 20px; border-block: 1px solid #fff;
+  background: #fff; color: #0e0e0e; text-align: center;
+  font: 600 15px/1.25 Arial, sans-serif;
+}
+.donation-unavailable:hover, .donation-unavailable:active {
+  transform: none; box-shadow: none; border-color: #fff;
+}
+.stamp.donation-unavailable:hover { background: transparent; }
