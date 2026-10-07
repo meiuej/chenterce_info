@@ -1,0 +1,78 @@
+/* Donation content with the typography, palette and layout of centerce.me. */
+html { scroll-behavior: smooth; }
+.sheet { max-width: 1120px; margin: 0 auto; padding: 48px 48px 24px; }
+.masthead { padding-bottom: 64px; }
+.tagline, .support-heading, .spending-card h3, .project-card h3 {
+  font-weight: 850; font-stretch: 65%;
+  font-variation-settings: 'wdth' 65, 'opsz' 48;
+  line-height: 1.02;
+}
+.tagline { max-width: 920px; margin: 0 0 24px; font-size: clamp(2.3rem, 5vw, 4.5rem); }
+.project-note, .support-intro, .spending-intro, .projects-intro, .faq-intro {
+  max-width: 690px; margin: 0; font-size: 1.125rem; line-height: 1.55;
+}
+.rule { border-top: 1px solid var(--rule); }
+.support, .spending, .projects, .faq { padding-top: 48px; scroll-margin-top: 24px; }
+.spending, .projects, .faq { margin-top: 64px; border-top: 1px solid var(--rule); }
+.support-heading { margin: 0 0 24px; font-size: clamp(2rem, 4vw, 3rem); }
+.options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 32px; }
+.stamp { display: flex; flex-direction: column; justify-content: center; gap: 8px; min-height: 160px; padding: 24px; border: 1px solid var(--rule); text-decoration: none; }
+a.stamp { background: var(--red); border-color: var(--red); }
+a.stamp:hover { background: #ff4949; border-color: #ff4949; }
+.via { font-size: 2rem; font-weight: 750; line-height: 1.1; }
+.for { font-size: 1rem; }
+.donation-unavailable { color: var(--muted); }
+.donation-unavailable .via { text-decoration: line-through; text-decoration-thickness: 1px; }
+.donation-unavailable__notice { max-width: 280px; font-size: .875rem; line-height: 1.4; }
+.spending-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.spending-card { border-top: 1px solid var(--rule); padding-top: 24px; }
+.spending-card h3 { font-size: 1.9rem; margin: 0 0 16px; }
+.spending-card h3 i { font-style: normal; }
+.spending-card p { margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.55; }
+.projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.project-card { display: flex; border: 1px solid var(--rule); padding: 24px; text-decoration: none; }
+.project-card > div { display: flex; flex-direction: column; align-items: flex-start; }
+.project-card__type { margin: 0 0 18px; color: var(--muted); font-size: .875rem; }
+.project-card h3 { margin: 0 0 24px; font-size: 2rem; }
+.project-card p:not(.project-card__type) { margin: 0 0 29px; font-size: 1rem; line-height: 1.55; }
+.project-card__link { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; text-decoration: underline; text-underline-offset: .2em; font-size: .9375rem; }
+.project-card:hover { border-color: white; }
+.project-card:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .12em; }
+.arrow-icon { display: inline-block; width: 1.2em; height: 1.2em; flex: 0 0 auto; }
+.faq-list { margin-top: 32px; border-top: 1px solid var(--rule); }
+.faq-item { border-bottom: 1px solid var(--rule); }
+.faq-item summary { padding: 24px 0; cursor: pointer; font-size: 1.25rem; line-height: 1.4; font-weight: 650; }
+.faq-item summary:hover { color: var(--muted); }
+.faq-item summary:focus-visible { outline: 2px solid #fff; outline-offset: 7px; }
+.faq-answer { max-width: 690px; padding: 0 0 24px; font-size: 1.125rem; line-height: 1.55; }
+.faq-answer p { margin: 0; }
+.sheet > footer { display: block; margin-top: 76px; padding-top: 24px; font-size: .75rem; line-height: 1.6; text-align: left; }
+.legal-title { margin: 0 0 6px; font-weight: 650; }
+.legal-copy { margin: 0; line-height: 2.1; }
+@media (max-width: 800px) {
+  .donate { min-height: 44px; padding: 12px 16px; font-size: 14px; line-height: 1.4; text-transform: none; font-variation-settings: 'wdth' 100; }
+  .spending-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 600px) {
+  .site-header { flex-wrap: wrap; gap: 16px; }
+  .site-header .donate { width: 100%; white-space: normal; text-align: center; }
+  .sheet { padding: 28px 22px 22px; }
+  .masthead { padding-bottom: 44px; }
+  .tagline { font-size: 2.35rem; line-height: 1.03; }
+  .tagline br { display: none; }
+  .project-note, .support-intro, .spending-intro, .projects-intro, .faq-intro, .faq-answer { font-size: 1rem; }
+  .support, .spending, .projects, .faq { padding-top: 26px; }
+  .spending, .projects, .faq { margin-top: 44px; }
+  .support-heading { font-size: 2rem; margin-bottom: 16px; }
+  .options, .projects-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+  .stamp { min-height: 144px; padding: 20px; }
+  .project-card { padding: 20px; }
+  .faq-item summary { padding: 20px 0; font-size: 1.125rem; }
+  .sheet > footer { margin-top: 54px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a.stamp, .project-card { transition: background-color .18s ease, border-color .18s ease; }
+  .project-card .arrow-icon { transition: transform .2s ease; }
+  .project-card:hover .arrow-icon { transform: translate(3px, -3px); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
