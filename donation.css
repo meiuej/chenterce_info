@@ -21,9 +21,6 @@ a.stamp { background: var(--red); border-color: var(--red); }
 a.stamp:hover { background: #ff4949; border-color: #ff4949; }
 .via { font-size: 2rem; font-weight: 750; line-height: 1.1; }
 .for { font-size: 1rem; }
-.donation-unavailable { color: var(--muted); }
-.donation-unavailable .via { text-decoration: line-through; text-decoration-thickness: 1px; }
-.donation-unavailable__notice { max-width: 280px; font-size: .875rem; line-height: 1.4; }
 .spending-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
 .spending-card { border-top: 1px solid var(--rule); padding-top: 24px; }
 .spending-card h3 { font-size: 1.9rem; margin: 0 0 16px; }
