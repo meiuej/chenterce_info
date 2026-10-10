@@ -7,19 +7,21 @@
   <link rel="canonical" href="https://donate.centerce.me">
   <title>Центр Ц. — поддержать</title>
   <meta name="theme-color" content="#121212">
-  <link rel="preload" href="assets/RobotoFlex.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/RobotoMono.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="centerce-base.css">
   <link rel="stylesheet" href="donation.css">
 </head>
 <body>
   <a class="skip-link" href="#support">К способам поддержки</a>
-  <header class="site-header">
-    <a class="brand" href="https://centerce.me/" aria-label="Центр Ц. — на главную"><img src="assets/logo.svg" alt="Центр Ц." width="2978" height="592"></a>
-    <a class="donate" href="#support">Поддержать нашу работу</a>
-  </header>
   <main class="sheet">
     <header class="masthead">
-      <h1 class="tagline">О жизни в России. Честно,<br> внимательно, без самоцензуры.</h1>
+      <h1 class="tagline" aria-label="Боремся за независимость, правду и Россию.">
+        <span class="tagline-lead">Боремся за</span>
+        <span class="dia-text" aria-hidden="true">
+          <span class="dia-text__spacer">независимость</span>
+          <span class="dia-text__word"><span class="dia-text__color">независимость</span></span>
+        </span>
+      </h1>
       <p class="project-note">«Центр Ц.» — идейный проект. Мы не просим донатить из обязанности: если вам близка наша работа, поддержка поможет нам продолжать говорить о важном.</p>
 
     </header>
@@ -127,5 +129,6 @@
   </main>
 
 
+  <script src="assets/text-dia.js" defer></script>
 </body>
 </html>
